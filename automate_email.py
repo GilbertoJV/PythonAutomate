@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 
 env_variables = load_dotenv(".env")
 
-password_email = os.environ['email_password']
-email_receiver = 'giljv@stbcaps.com'
+email_receiver = 'email@example.com,email2@example.com'
+
 
 email_body = """
 Este es un correo automatizado.
@@ -19,8 +19,8 @@ Saludos.
 
 em = EmailMessage()
 em['From'] = os.environ['email_user']
-em['To'] = 'giljv@stbcaps.com'
-em['Subject'] = email_receiver
+em['To'] = email_receiver
+em['Subject'] = 'Correo Automatizado'
 em.set_content(email_body)
 
 context = ssl.create_default_context()
