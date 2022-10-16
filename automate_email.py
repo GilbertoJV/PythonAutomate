@@ -4,6 +4,7 @@ import ssl
 import smtplib
 from dotenv import load_dotenv
 
+# take env variables from a .env file
 env_variables = load_dotenv(".env")
 
 email_receiver = 'email@example.com,email2@example.com'
@@ -17,12 +18,14 @@ Creado por: Gilberto JV Skirlo.
 Saludos.
 """
 
+#Make email instance
 em = EmailMessage()
 em['From'] = os.environ['email_user']
 em['To'] = email_receiver
 em['Subject'] = 'Correo Automatizado'
 em.set_content(email_body)
 
+#add ssl certificate
 context = ssl.create_default_context()
 
 with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp_instance:
