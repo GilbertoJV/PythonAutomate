@@ -6,6 +6,7 @@ import pandas as pd
 website = "https://www.thesun.co.uk/sport/football/"
 path=r"C:\Users\giljv\Downloads\chromedriver_win32\chromedriver.exe"
 
+#Open in background
 options = Options()
 options.headless = True
 
@@ -17,8 +18,6 @@ driver.get(website)
 titles = []
 subtitles = []
 links = []
-
-
 
 containers = driver.find_elements(by='xpath', value='//div[@class="teaser__copy-container"]')
 for container in containers:
